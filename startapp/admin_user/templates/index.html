@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    <h1>Index</h1>
+    <div>
+        <a href="new/">생성</a>
+    </div>
+    <div>
+        {% for admin_user in admin_users %}
+            <li>
+                <a href="{{admin_user.id}}/">{{admin_user.name}}</a>
+                (<a href="{{admin_user.id}}/edit/">수정</a>
+                <form style="display:inline;" action="{{admin_user.id}}/delete/" method="post">{% csrf_token %}<input onclick="return confirm('really???')" type="submit" value="삭제"></form>)
+            </li>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+/tmp/evr_docker_build_info.txt

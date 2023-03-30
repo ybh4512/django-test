@@ -7,8 +7,10 @@
 <body>
     <h1>Show</h1>
     <a href="/admin_user/">To Index</a><br/><br/>
-    <a href="{{admin_user.id}}/edit/">수정</a>
-    <form style="display:inline;" action="{{admin_user.id}}/delete/" method="post">{% csrf_token %}<input onclick="return confirm('really???')" type="submit" value="삭제"></form>
+    <a href="/admin_user/{{admin_user.id}}/edit/">수정</a>
+    <form style="display:inline;" action="/admin_user/{{admin_user.id}}/delete/" method="post">{% csrf_token %}
+        <input onclick="return confirm('really???')" type="submit" value="삭제">
+    </form>
 
     <h5>{{admin_user.id}}</h5>
     <h5>{{admin_user.name}}</h5>

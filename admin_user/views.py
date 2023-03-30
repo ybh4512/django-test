@@ -33,7 +33,6 @@ def new(request):
 
 def edit(request, admin_user_id):
     admin_user = AdminUser.objects.get(pk=admin_user_id)
-    # f = AdminUserForm({'name':admin_user.name, 'email':admin_user.email, 'created_at':admin_user.created_at, 'updated_at':admin_user.updated_at})
     f = AdminUserForm(instance=admin_user)
     return render(request, "edit.html", {'form':f, "admin_user_id":admin_user_id})
 

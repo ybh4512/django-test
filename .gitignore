@@ -1,2 +1,4 @@
-.idea/
-startapp/logs/
+logs/
+*.pyc
+.idea
+

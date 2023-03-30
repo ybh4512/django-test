@@ -48,8 +48,9 @@ def create(request):
     new_user = AdminUser()
     new_user.name = form.cleaned_data['name']
     new_user.email = form.cleaned_data['email']
-    new_user.created_at = datetime.datetime.now()
-    new_user.updated_at = datetime.datetime.now()
+    new_user.is_valid = form.cleaned_data['is_valid']
+    new_user.description = form.cleaned_data['description']
+    new_user.just_datetime = form.cleaned_data['just_datetime']
     new_user.save()
 
     return redirect("/admin_user/{}/".format(new_user.id))
@@ -66,7 +67,9 @@ def update(request, admin_user_id):
     user = AdminUser.objects.get(pk=admin_user_id)
     user.name = form.cleaned_data['name']
     user.email = form.cleaned_data['email']
-    user.updated_at = datetime.datetime.now()
+    user.is_valid = form.cleaned_data['is_valid']
+    user.description = form.cleaned_data['description']
+    user.just_datetime = form.cleaned_data['just_datetime']
     user.save()
 
     return redirect("/admin_user/{}/".format(admin_user_id))
